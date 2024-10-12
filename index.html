@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Farmacia</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS (Compilado desde SCSS) -->
+    <link rel="stylesheet" href="custom.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-sm-top"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="imgs/Lazarus_cross.svg" height="32" width="32" alt="" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#search">Buscar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#categories-menu" id="categories-link"
+                >Categorías</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="prescription.html" target="_blank"
+                >Receta</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#opinions">Opiniones</a>
+            </li>
+
+            <!-- Dropdown para la imagen de perfil -->
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                id="profileDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  color="#050505"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="signIn.html" target="_blank"
+                    >Iniciar Sesión</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="signUp.html" target="_blank"
+                    >Registrarse</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <section id="home" class="text-center">
+        <h1 class="display-4 text-primary">Bienvenido a Lazarus</h1>
+        <p class="lead">
+          Encuentra los medicamentos que necesitas de forma rápida y segura.
+        </p>
+      </section>
+      <!-- carrusel de """"promociones"""" -->
+      <section id="promotions" class="my-4">
+        <div
+          id="carouselExampleControlsNoTouching"
+          class="carousel slide"
+          data-bs-touch="false"
+        >
+          <div class="carousel-inner text-light">
+            <div class="carousel-item active">
+              <img
+                src="imgs/proms01.jpg"
+                class="d-block w-100"
+                alt="Promoción 1"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="imgs/proms02.jpg"
+                class="d-block w-100"
+                alt="Promoción 2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="imgs/proms03.jpg"
+                class="d-block w-100"
+                alt="Promoción 3"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Categorías -->
+      <div
+        id="categories-menu"
+        class="categories-menu container mb-5"
+        aria-hidden="true"
+      >
+        <div class="categories-content">
+          <div class="text-center">
+            <h2>Categorías</h2>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <!-- Analgésicos -->
+            <div class="col">
+              <div class="accordion" id="accordionExample1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne1">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne1"
+                      aria-expanded="true"
+                      aria-controls="collapseOne1"
+                    >
+                      Analgésicos
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne1"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne1"
+                    data-bs-parent="#accordionExample1"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Los analgésicos son medicamentos para aliviar el dolor.
+                        Se utilizan para el tratamiento de dolores de cabeza,
+                        musculares, articulares, entre otros.
+                      </p>
+                      <a href="#" class="btn btn-primary">Ver Analgésicos</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Antibióticos -->
+            <div class="col">
+              <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo2">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo2"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo2"
+                    >
+                      Antibióticos
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo2"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo2"
+                    data-bs-parent="#accordionExample2"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Los antibióticos son medicamentos que combaten
+                        infecciones bacterianas. Son esenciales para tratar
+                        enfermedades infecciosas graves.
+                      </p>
+                      <a href="#antibioticos" class="btn btn-primary"
+                        >Ver Antibióticos</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Antiinflamatorios -->
+            <div class="col">
+              <div class="accordion" id="accordionExample3">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree3">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree3"
+                      aria-expanded="false"
+                      aria-controls="collapseThree3"
+                    >
+                      Antiinflamatorios
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseThree3"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree3"
+                    data-bs-parent="#accordionExample3"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Los antiinflamatorios reducen la inflamación y el dolor
+                        asociado. Son utilizados en el tratamiento de
+                        condiciones como la artritis o lesiones deportivas.
+                      </p>
+                      <a href="#antiinflamatorios" class="btn btn-primary"
+                        >Ver Antiinflamatorios</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vitaminas -->
+            <div class="col">
+              <div class="accordion" id="accordionExample4">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour4">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour4"
+                      aria-expanded="false"
+                      aria-controls="collapseFour4"
+                    >
+                      Vitaminas
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFour4"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFour4"
+                    data-bs-parent="#accordionExample4"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Las vitaminas son nutrientes esenciales para el correcto
+                        funcionamiento del cuerpo humano, apoyando el sistema
+                        inmunológico y la salud general.
+                      </p>
+                      <a href="#vitaminas" class="btn btn-primary"
+                        >Ver Vitaminas</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cuidado Personal -->
+            <div class="col">
+              <div class="accordion" id="accordionExample5">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFive5">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive5"
+                      aria-expanded="false"
+                      aria-controls="collapseFive5"
+                    >
+                      Cuidado Personal
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFive5"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFive5"
+                    data-bs-parent="#accordionExample5"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Los productos de cuidado personal incluyen todo lo
+                        relacionado con el aseo y bienestar del cuerpo, desde
+                        cremas hidratantes hasta productos de higiene personal.
+                      </p>
+                      <a href="#cuidadopersonal" class="btn btn-primary"
+                        >Ver Cuidado Personal</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primeros Auxilios -->
+            <div class="col">
+              <div class="accordion" id="accordionExample6">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingSix6">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix6"
+                      aria-expanded="false"
+                      aria-controls="collapseSix6"
+                    >
+                      Primeros Auxilios
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseSix6"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSix6"
+                    data-bs-parent="#accordionExample6"
+                  >
+                    <div class="accordion-body">
+                      <p>
+                        Los productos de primeros auxilios son esenciales para
+                        tratar heridas menores, quemaduras y otras emergencias
+                        antes de recibir atención médica profesional.
+                      </p>
+                      <a href="#primerosauxilios" class="btn btn-primary"
+                        >Ver Primeros Auxilios</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- video yutu -->
+      <section class="container-fluid">
+        <iframe
+          class="iframe-youtube"
+          src="https://www.youtube.com/embed/rl2xsVe8cNw"
+          title="Medical Stock Footage | A Curated Collection by FILMPAC"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <!-- Opiniones de mis clientes 100% reales no fake -->
+      <section id="opinions" class="my-4">
+        <h2>Opiniones de algunos Clientes</h2>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Samuel Albeiro Rueda</h5>
+                <p class="card-text">
+                  "Excelente servicio y atención al cliente. Siempre encuentro
+                  lo que necesito."
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Santiago Hoyos</h5>
+                <p class="card-text">
+                  "No se que me gusta más si la pagina o sus producto tan buenos."
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Cantera</h5>
+                <p class="card-text">
+                  "Buenos productos pero mejores precios."
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 mb-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Camilo Advincula</h5>
+                <p class="card-text">
+                  "Un servicio de pelos, espectacular."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Tabla -->
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Ofertas de Locura para Nuestros Clientes</h2>
+      <p class="text-center">
+        ¡Aprovecha estas promociones exclusivas tan exclusivas como nuestros productos!
+      </p>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered table-custom">
+          <thead class="thead-light">
+            <tr>
+              <th class="text-center">Producto</th>
+              <th class="text-center">Descripción</th>
+              <th class="text-center">Precio</th>
+              <th class="text-center">Precio + Descuento</th>
+              <th class="text-center">Comprar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Mieltertos</td>
+              <td>Jarabe natural para aliviar la tos seca y productiva. Ideal para niños y adultos.</td>
+              <td class="text-center"><s>$28,000</s></td>
+              <td class="text-center">
+                <strong>$22,400</strong>
+                <span class="badge bg-success">20% de descuento</span>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-primary btn-sm btn-buy">Añadir al Carrito</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">Venostasin</td>
+              <td>Crema para mejorar la circulación venosa y aliviar la pesadez en las piernas.</td>
+              <td class="text-center"><s>$45,000</s></td>
+              <td class="text-center">
+                <strong>$36,000</strong>
+                <span class="badge bg-success">20% de descuento</span>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-primary btn-sm btn-buy">Añadir al Carrito</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">Eucerin</td>
+              <td>Crema hidratante para pieles sensibles, recomendada para combatir la resequedad.</td>
+              <td class="text-center"><s>$60,000</s></td>
+              <td class="text-center">
+                <strong>$48,000</strong>
+                <span class="badge bg-success">20% de descuento</span>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-primary btn-sm btn-buy">Añadir al Carrito</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">Allegra</td>
+              <td>Antialérgico de acción rápida para el alivio de síntomas como estornudos y picazón.</td>
+              <td class="text-center"><s>$35,000</s></td>
+              <td class="text-center">
+                <strong>$28,000</strong>
+                <span class="badge bg-success">20% de descuento</span>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-primary btn-sm btn-buy">Añadir al Carrito</button>
+              </td>
+            </tr>
+            <tr class="table-warning">
+              <td class="text-center">
+                Nivea
+                <span class="badge bg-warning"
+                  >¡Oferta del Día!</span
+                >
+              </td>
+              <td>Crema hidratante corporal, ideal para mantener la piel suave y protegida diariamente.</td>
+              <td class="text-center"><s>$25,000</s></td>
+              <td class="text-center">
+                <strong>$17,500</strong>
+                <span class="badge bg-success">30% de descuento</span>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-warning btn-sm btn-buy">Añadir al Carrito</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>Contacto</h5>
+            <p>
+              Email:
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=lamejorfarmacia123@gmail.com"
+                target="_blank"
+                class="text-white"
+                >lamejorfarmacia123@gmail.com</a
+              >
+            </p>
+            <p>
+              Teléfono:
+              <a href="tel:+5731052020157" class="text-white">31052020157</a>
+            </p>
+            <p>Dirección: Calle 88 Oeste #66-74, Cali, Valle</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Tambien puedes visitar:</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Sobre Nosotros</a></li>
+              <li><a href="#" class="text-white">Servicios</a></li>
+              <li><a href="#" class="text-white">Promocioones</a></li>
+              <li><a href="#" class="text-white">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Horarios de Atención</h5>
+            <p>Lunes a Viernes: 8:00 AM - 8:00 PM</p>
+            <p>Sabados: 9:00 AM - 5:00 PM</p>
+            <p>Domingos y Festivos: 10:00 AM - 3:00 PM</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <p class="mb-0">
+              • 2024 farmacia Lazarus. Todos los derechos reservados por mi.(Ya
+              no puedo más profe)
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

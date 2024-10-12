@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body class="bg">
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4">Pedido con Receta</h2>
+              <form>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre del medicamento"
+                    aria-label="Nombre del medicamento"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Dosis"
+                    aria-label="Dosis"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="formFile" class="form-label"
+                    >Adjunte uno o varios archivos de la receta</label
+                  >
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="formFile"
+                    required
+                  />
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary text-center">
+                    Enviar Pedido
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
